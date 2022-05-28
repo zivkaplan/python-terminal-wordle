@@ -1,4 +1,4 @@
-from wordle import Wordle
+from wordle import *
 
 def ParseChoice(choice):
     while True:
