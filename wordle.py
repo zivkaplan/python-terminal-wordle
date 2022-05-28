@@ -62,6 +62,8 @@ class Wordle:
     def __init__(self):
         self._MAX_ROUNDS = 6
         self._dictionary = _Dict()
+    
+    def _ReInit(self):
         self._secret_word = self._GetSecretWord()
         self._guesses_letters = {
             letter: _Letter(letter) for letter in string.ascii_uppercase }
@@ -75,8 +77,9 @@ class Wordle:
         a method to chose new secret word for the game
         """
         SECRET_WORD_LENGTH = 5
-        while len(word := self._dictionary.GetRandomWord()) != SECRET_WORD_LENGTH:
-            pass
+        word = self._dictionary.GetRandomWord()
+        while (not word.isalpha()) or (len(word) != SECRET_WORD_LENGTH):
+            word = self._dictionary.GetRandomWord()
         return word
 
 
@@ -141,7 +144,7 @@ class Wordle:
         """
         Start new game
         """        
-        self.__init__()
+        self._ReInit()
         
         was_invalid_guess = False
         has_guessed_correctly = False

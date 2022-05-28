@@ -8,7 +8,7 @@ def ParseChoice(choice):
         elif choice in ["N","NO"]:
             return False
         else:
-            choice = input("invalid input. Try again:\n")
+            choice = input("invalid input. Try again: ")
             
     
 
@@ -18,7 +18,7 @@ def main():
     is_playing = True
     while is_playing:
         game.Start()
-        is_playing = ParseChoice(input("Would you like to play again? [Y/n]"))
+        is_playing = ParseChoice(input("Would you like to play again? [Y/n]: "))
         
 
 
