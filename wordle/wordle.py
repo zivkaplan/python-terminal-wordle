@@ -48,7 +48,11 @@ class _Dict:
         self._content = self._LoadDict()
 
     def _LoadDict(self):
-        with open("/usr/share/dict/words", "r") as dict:
+        file_location = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)),
+            "words.txt")
+        
+        with open(file_location, "r") as dict:
             return [line.split()[0].upper() for line in dict]
 
     def GetRandomWord(self):
@@ -171,6 +175,3 @@ class Wordle:
             self._PrintWinScreen()
         else:
             self._PrintLoseScreen()
-            
-            
-all = ["Wordle"]
