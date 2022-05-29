@@ -31,7 +31,7 @@ class _Colors:
 
 
 class _Letter:
-    def __init__(self, letter, color=_Colors.WHITE):
+    def __init__(self, letter, color=_Colors.BOLD_WHITE):
         self._letter = letter
         self._color = color
     
